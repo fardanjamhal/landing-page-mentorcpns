@@ -214,6 +214,9 @@ h6 {
 /**
 * Desktop Navigation 
 */
+
+/*
+
 .navbar {
   padding: 0;
 }
@@ -263,7 +266,6 @@ h6 {
   height: 2px;
   bottom: -6px;
   left: 0;
-  /* background-color: #106eea; */
   visibility: hidden;
   width: 0px;
   transition: all 0.3s ease-in-out 0s;
@@ -346,9 +348,7 @@ h6 {
   }
 }
 
-/**
-* Mobile Navigation 
-*/
+
 .mobile-nav-toggle {
   color: #222222;
   font-size: 28px;
@@ -464,6 +464,8 @@ h6 {
 .navbar-mobile .dropdown>.dropdown-active {
   display: block;
 }
+
+*/
 
 /*--------------------------------------------------------------
 # Hero Section
