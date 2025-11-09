@@ -1070,16 +1070,16 @@
   <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
   <script src="assets/vendor/php-email-form/validate.js"></script>
 
-   <script>
-  window.addEventListener("scroll", function() {
-    const header = document.getElementById("header");
-    if (window.scrollY > 20) {
-      header.classList.add("scrolled");
-    } else {
-      header.classList.remove("scrolled");
-    }
+
+
+  <script>
+  // Saat halaman selesai dimuat
+  window.addEventListener('load', function() {
+    // Scroll ke atas dengan smooth behavior
+    window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
   });
   </script>
+
 
   <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
