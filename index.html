@@ -36,6 +36,13 @@
 
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 
+  <!-- Swiper CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+
+  <!-- GLightbox for Zoom -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css" />
+
+
   <!-- =======================================================
   * Template Name: BizLand
   * Updated: Sep 18 2023 with Bootstrap v5.3.2
@@ -222,9 +229,127 @@
     color: #222;
   }
 }
+</style>
 
+<style>
+.buku-digital-title {
+  text-align: center;
+  margin-bottom: 40px;
+  padding-left: 15px;
+  padding-right: 15px;
+  box-sizing: border-box;
+}
+
+/* Judul utama modern, responsif */
+.modern-text {
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #0057ff;
+  line-height: 1.1;
+  text-align: center;
+  display: inline-block;
+  max-width: 100%;
+  padding-left: 15px;
+  padding-right: 15px;
+  box-sizing: border-box;
+
+  /* FONT RESPONSIF FIX */
+  font-size: clamp(26px, 8vw, 42px) !important; /* minimum 26px, maksimum 42px, fleksibel */
+}
+
+
+/* Garis neon di bawah teks */
+.modern-text::after {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 4px;
+  margin-top: 8px;
+  background: linear-gradient(90deg, #0057ff, #d80000);
+  border-radius: 2px;
+  opacity: 0;
+  transform: scaleX(0);
+  animation: linePop 1s ease forwards 0.8s;
+}
+
+/* Caption */
+.sub-caption {
+  font-size: 1.5vw;
+  font-weight: 500;
+  color: #444;
+  margin-top: 12px;
+  opacity: 0;
+  animation: fadeUp 1s ease forwards 1.4s;
+}
+
+/* Efek cursor & interaksi */
+.glow-card {
+  display: inline-block;
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  cursor: pointer; /* menandakan klik/hover aktif */
+}
+
+/* Hover desktop: zoom & glow */
+.glow-card:hover {
+  transform: scale(1.05); /* zoom lembut */
+  box-shadow: 0 15px 30px rgba(0, 140, 255, 0.5);
+}
+
+/* Foto di dalam card */
+.glow-card .glow-img {
+  display: block;
+  border-radius: 16px;
+  transition: transform 0.4s ease, filter 0.4s ease;
+}
+
+/* Hover foto */
+.glow-card:hover .glow-img {
+  transform: scale(1.08); /* sedikit zoom foto */
+  filter: brightness(1.1);
+}
+
+/* Animasi */
+@keyframes linePop {
+  0% { opacity: 0; transform: scaleX(0); }
+  50% { opacity: 1; transform: scaleX(1.05); }
+  100% { opacity: 1; transform: scaleX(1); }
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* MEDIA QUERIES MOBILE FIX */
+@media (max-width: 992px) {
+  .modern-text {
+    font-size: 8vw;
+  }
+  .sub-caption {
+    font-size: 4vw;
+  }
+}
+
+@media (max-width: 576px) {
+  .modern-text {
+    font-size: 5vw !important; /* pastikan judul mengecil mengikuti lebar hp */
+  }
+  .sub-caption {
+    font-size: 4vw;
+  }
+  .glow-card:active {
+    transform: scale(1.03);
+    box-shadow: 0 10px 20px rgba(0, 140, 255, 0.5);
+  }
+}
 
 </style>
+
+
 
 
   <!-- ======= Header ======= -->
@@ -455,7 +580,7 @@
 
 
 
-    <!-- ======= Keuntungan Belajar di Mentor CPNS ======= -->
+    <!-- ======= Keuntungan Belajar di Mentor CPNS ======= 
 
           <div class="container-keuntungan-belajar">
             <div> 
@@ -483,135 +608,65 @@
               </div>
             </div>
           </div>
-          </div>
+          </div>-->
     
     <!-- End Keuntungan Belajar di Mentor CPNS Section -->
 
+    <div class="py-5">
+    <div> 
+     <div class="section-title buku-digital-title">
+      <h3 class="modern-text">BUKU DIGITAL TES CPNS 2026</h3>
+      <p class="sub-caption">Belajar efektif, terarah, dan siap lolos tes CPNS</p>
+    </div>
+
+
+      <div class="keuntungan-belajar">
+          <div class="glow-card">
+          <a href="assets/img/buku.jpeg" class="glightbox">
+            <img src="assets/img/buku.jpeg" class="glow-img" alt="Foto Testimoni">
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
 
     <!-- End Testimoni Section -->
-      <section id="testimoni" class="testimonials">
-        <div class="container">
-          <div class="section-title">
-            <!-- <h2>Services</h2> -->
-            <h3 style="color: #ffffff; padding-left: 1rem; padding-right: 1rem;">Testimoni Peserta <span>Mentor CPNS</span></h3>
-          </div>
+     <section id="testimoni" class="testimonials" style="background: linear-gradient(135deg,#13151c,#272a35); padding: 60px 0;">
+      <div class="container">
 
-          <div class="testifardan">
-
-
-          <div class="testimonials-slider swiper">
-            <div class="swiper-wrapper">
-
-              <div class="swiper-slide">
-                <div class="sstestimoni-img">
-                  <img src="assets/img/testimoni/testihp1-min.png" alt="">
-                </div>
-              </div>
-
-              <div class="swiper-slide">
-                <div class="sstestimoni-img">
-                  <img src="assets/img/testimoni/testihp2-min.png" alt="">
-                </div>
-              </div>
-
-              <div class="swiper-slide">
-                <div class="sstestimoni-img">
-                  <img src="assets/img/testimoni/testihp3-min.png" alt="">
-                </div>
-              </div>
-
-              <div class="swiper-slide">
-                <div class="sstestimoni-img">
-                  <img src="assets/img/testimoni/testihp4-min.png" alt="">
-                </div>
-              </div>
-
-              <div class="swiper-slide">
-                <div class="sstestimoni-img">
-                  <img src="assets/img/testimoni/testihp5-min.png" alt="">
-                </div>
-              </div>
-
-              
-              <div class="swiper-slide">
-                <div class="sstestimoni-img">
-                  <img src="assets/img/testimoni/testihp6-min.png" alt="">
-                </div>
-              </div>
-
-              <div class="swiper-slide">
-                <div class="sstestimoni-img">
-                  <img src="assets/img/testimoni/testihp7-min.png" alt="">
-                </div>
-              </div>
-
-            </div>
-            <div class="swiper-pagination"></div>
-          </div>
-
-          <div class="testimonials-slider swiper">
-            <div class="swiper-wrapper">
-
-              <div class="swiper-slide">
-                <div class="sstestimoni-img">
-                  <img src="assets/img/testimoni/testihp8-min.png" alt="">
-                </div>
-              </div>
-
-              <div class="swiper-slide">
-                <div class="sstestimoni-img">
-                  <img src="assets/img/testimoni/testihp9-min.png" alt="">
-                </div>
-              </div>
-
-              <div class="swiper-slide">
-                <div class="sstestimoni-img">
-                  <img src="assets/img/testimoni/testihp10-min.png" alt="">
-                </div>
-              </div>
-
-              <div class="swiper-slide">
-                <div class="sstestimoni-img">
-                  <img src="assets/img/testimoni/testihp11-min.png" alt="">
-                </div>
-              </div>
-
-              <div class="swiper-slide">
-                <div class="sstestimoni-img">
-                  <img src="assets/img/testimoni/testihp12-min.png" alt="">
-                </div>
-              </div>
-
-              <div class="swiper-slide">
-                <div class="sstestimoni-img">
-                  <img src="assets/img/testimoni/testihp13-min.png" alt="">
-                </div>
-              </div>
-              
-            </div>
-            <div class="swiper-pagination"></div>
-          </div>
-
+        <div class="section-title">
+          <h3 style="color: #ffffff; text-align:center;">Testimoni Peserta <span>Mentor CPNS</span></h3>
         </div>
 
-              <!-- <div class="swiper-slide">
-                <div class="testimonial-item">
-                  <img src="assets/img/testimoni/fp2.webp" class="testimonial-img" alt="">
-                  <h3>Hardiana Annisa</h3>
-                  <h4>Lulus Kejaksaan TA 2023</h4>
-                </div>
-                <div class="sstestimoni-img">
-                  <img src="assets/img/testimoni/ss2.webp" alt="">
-                </div>
-              </div> -->
+        <div class="swiper testimoniSwiper">
+        <div class="swiper-wrapper">
 
-
-          <div style="text-align: center;">
-            <a href="https://drive.google.com/drive/folders/1MRhRz5B7ILU6nPWZwUssay3BBqe3U8Wy?usp=sharing" style="color: aliceblue;" target="_blank"><p>Lihat Testimoni Lebih Banyak <i class="bi bi-chevron-double-right"></i></p></a>
-          </div>
+        <!-- Generate otomatis -->
+        <script>
+          const container = document.currentScript.parentNode;
+          for (let i = 1; i <= 21; i++) {
+            const slide = document.createElement('div');
+            slide.className = 'swiper-slide';
+            slide.innerHTML = `
+              <a href="assets/img/testimoni/image${i}.jpeg" class="glightbox">
+                <img src="assets/img/testimoni/image${i}.jpeg" class="img-fluid imgtesti" alt="testimoni ${i}">
+              </a>
+            `;
+            container.appendChild(slide);
+          }
+        </script>
 
         </div>
-      </section>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-pagination"></div>
+        </div>
+
+      </div>
+    </section>
 
     <!-- End Testimoni Section -->
 
@@ -989,6 +1044,57 @@
     }
   });
   </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
+
+<script>
+  var swiper = new Swiper(".testimoniSwiper", {
+    effect: "coverflow",
+    grabCursor: true,
+    centeredSlides: true,
+    loop: true,
+
+    autoplay: {
+      delay: 2500, // jeda 2,5 detik
+      disableOnInteraction: false,
+    },
+
+    coverflowEffect: {
+      rotate: 0,
+      stretch: 0,
+      depth: 120,
+      modifier: 2,
+      slideShadows: false,
+      scale: 0.85, /* gambar samping mengecil */
+    },
+
+    slidesPerView: 3,
+    spaceBetween: 25,
+
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+      dynamicBullets: true, // max 5 bullet
+    },
+
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+
+    breakpoints: {
+      0: { slidesPerView: 1, coverflowEffect: { scale: 1 } },
+      768: { slidesPerView: 2 },
+      1024: { slidesPerView: 3 }
+    }
+  });
+
+  // Zoom
+  const lightbox = GLightbox({
+    selector: '.glightbox'
+  });
+</script>
 
 
   <!-- Template Main JS File -->
