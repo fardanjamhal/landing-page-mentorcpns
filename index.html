@@ -232,6 +232,42 @@
 </style>
 
 <style>
+  .testimoniSwiper .swiper-slide {
+    display: flex;
+    justify-content: center;
+  }
+
+  .imgtesti {
+    border-radius: 12px;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    cursor: zoom-in;
+  }
+
+  .imgtesti:hover {
+    transform: scale(1.05);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.4);
+  }
+
+  .swiper-button-prev, .swiper-button-next {
+    color: white;
+  }
+  /* Bullet Pagination */
+.swiper-pagination-bullet {
+  background: rgba(255,255,255,0.4);
+  opacity: 1;
+}
+
+.swiper-pagination-bullet-active {
+  background: #007bff !important; /* Biru */
+  width: 14px;
+  height: 14px;
+  box-shadow: 0 0 10px #007bff;
+}
+
+</style>
+
+
+<style>
 .buku-digital-title {
   text-align: center;
   margin-bottom: 40px;
