@@ -683,12 +683,14 @@
         <!-- Generate otomatis -->
         <script>
           const container = document.currentScript.parentNode;
+          const version = Date.now(); // supaya selalu ambil gambar terbaru
+
           for (let i = 1; i <= 21; i++) {
             const slide = document.createElement('div');
             slide.className = 'swiper-slide';
             slide.innerHTML = `
-              <a href="assets/img/testimoni/image${i}.jpeg" class="glightbox">
-                <img src="assets/img/testimoni/image${i}.jpeg" class="img-fluid imgtesti" alt="testimoni ${i}">
+              <a href="assets/img/testimoni/image${i}.jpeg?v=${version}" class="glightbox">
+                <img src="assets/img/testimoni/image${i}.jpeg?v=${version}" class="img-fluid imgtesti" alt="testimoni ${i}">
               </a>
             `;
             container.appendChild(slide);
@@ -782,6 +784,96 @@
       }
     </style>
 
+    <style>
+      .teamfardan {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 25px;
+          align-items: center;
+          justify-content: center;
+          padding: 20px;
+        }
+
+        .teamfardan .member {
+          overflow: hidden;
+          border-radius: 18px;
+          background: #ffffff;
+          box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+          transition: transform .4s ease, box-shadow .4s ease;
+        }
+
+        .teamfardan .member img {
+          width: 100%;
+          display: block;
+          transition: transform .5s ease;
+        }
+
+        /* Hover effect */
+        .teamfardan .member:hover {
+          transform: translateY(-6px);
+          box-shadow: 0 12px 28px rgba(0,0,0,0.15);
+        }
+
+        .teamfardan .member:hover img {
+          transform: scale(1.08);
+        }
+
+        /* Mobile Responsif */
+        @media (max-width: 768px) {
+          .teamfardan {
+            grid-template-columns: 1fr;
+          }
+        }
+
+    </style>
+
+    <style>
+      .teamfardan-single {
+          width: 100%;
+          display: flex;
+          justify-content: center;
+          padding: 20px;
+        }
+
+        .member-single {
+          width: 50%;
+          max-width: 900px; /* batas ukuran di layar besar */
+          border-radius: 18px;
+          overflow: hidden;
+          background: #ffffff;
+          box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+          transition: transform .4s ease, box-shadow .4s ease;
+        }
+
+        .member-single img {
+          width: 100%;
+          height: auto;
+          display: block;
+          transition: transform .5s ease;
+        }
+
+        /* Hover elegan */
+        .member-single:hover {
+          transform: translateY(-6px);
+          box-shadow: 0 14px 30px rgba(0,0,0,0.14);
+        }
+
+        .member-single:hover img {
+          transform: scale(1.06);
+        }
+
+        /* Mobile Optimization */
+        @media (max-width: 768px) {
+          .teamfardan-single {
+            padding: 12px;
+          }
+          .member-single {
+            border-radius: 14px;
+            width: 100%;
+          }
+        }
+    </style>
+
     <!-- ======= Team Section ======= -->
     <section id="team" class="team section-bg">
       <div class="container">
@@ -789,11 +881,11 @@
         <div class="section-title">
           <h2>Team</h2>
           <h3>Para <span>Mentor CPNS</span></h3>
-          <p>Semua Mentor Merupakan ASN yang Siap Membantu Anda Lulus CPNS PPPK</p>
+          <p>Semua Mentor Merupakan ASN yang Siap Membantu Anda Lulus CPNS 2026</p>
         </div>
 
+        <!--
         <div class="teamfardan">
-
           <div class="teamfardan1">
             <div class="member" style="display: flex; justify-content: center;">
               <div class="member-img">
@@ -809,24 +901,24 @@
               </div>
             </div>
           </div>
-
-          <div class="teamfardan1">
-            <div class="member" style="display: flex; justify-content: center;">
-              <div class="member-img">
-                <img src="assets/img/team/mentor3-min.png" class="img-fluid" alt="">
-              </div>
-            </div>
-          </div>
-
-          <div class="teamfardan1">
-            <div class="member" style="display: flex; justify-content: center;">
-              <div class="member-img">
-                <img src="assets/img/team/mentor4-min.png" class="img-fluid" alt="">
-              </div>
-            </div>
-          </div>
-
         </div>
+        -->
+
+        <div class="teamfardan">
+          <div class="member">
+            <img src="assets/img/team/mentorc.jpeg" alt="Mentor 1">
+          </div>
+          <div class="member">
+            <img src="assets/img/team/mentorc2.jpeg" alt="Mentor 2">
+          </div>
+        </div>
+
+        <div class="teamfardan-single">
+          <div class="member-single">
+            <img src="assets/img/skdcat2026.jpeg" alt="Mentor">
+          </div>
+        </div>
+
 
       </div>
     </section>
