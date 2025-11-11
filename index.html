@@ -874,6 +874,44 @@
         }
     </style>
 
+    <style>
+      /* Wrapper tombol agar center */
+    .cta-center {
+      display: flex;
+      justify-content: center;
+      margin-top: 25px;
+    }
+
+    /* Tombol modern elegan */
+    .cta-modern {
+      display: inline-block;
+      padding: 14px 40px;
+      font-size: 18px;
+      font-weight: 600;
+      border-radius: 50px;
+      text-decoration: none;
+      color: #fff;
+      background: linear-gradient(135deg, #2563eb, #3b82f6);
+      box-shadow: 0 8px 20px rgba(37, 99, 235, 0.35);
+      transition: all .35s ease;
+    }
+
+    .cta-modern:hover {
+      transform: translateY(-4px) scale(1.04);
+      box-shadow: 0 14px 32px rgba(37, 99, 235, 0.50);
+    }
+
+    /* Mobile friendly */
+    @media (max-width: 768px) {
+      .cta-modern {
+        width: 100%;
+        text-align: center;
+        font-size: 17px;
+        padding: 13px 0;
+      }
+    }
+    </style>
+
     <!-- ======= Team Section ======= -->
     <section id="team" class="team section-bg">
       <div class="container">
@@ -884,32 +922,9 @@
           <p>Semua Mentor Merupakan ASN yang Siap Membantu Anda Lulus CPNS 2026</p>
         </div>
 
-        <!--
-        <div class="teamfardan">
-          <div class="teamfardan1">
-            <div class="member" style="display: flex; justify-content: center;">
-              <div class="member-img">
-                <img src="assets/img/team/mentor1-min.png" class="img-fluid" alt="">
-              </div>
-            </div>
-          </div>
-
-          <div class="teamfardan1">
-            <div class="member" style="display: flex; justify-content: center;">
-              <div class="member-img">
-                <img src="assets/img/team/mentor2-min.png" class="img-fluid" alt="">
-              </div>
-            </div>
-          </div>
-        </div>
-        -->
-
-        <div class="teamfardan">
-          <div class="member">
-            <img src="assets/img/team/mentorc.jpeg" alt="Mentor 1">
-          </div>
-          <div class="member">
-            <img src="assets/img/team/mentorc2.jpeg" alt="Mentor 2">
+        <div class="teamfardan-single">
+          <div class="member-single">
+            <img src="assets/img/team/mentorc.jpeg" alt="Mentor">
           </div>
         </div>
 
@@ -919,6 +934,12 @@
           </div>
         </div>
 
+          <!-- CTA HERE -->
+        <div class="cta-center">
+          <a href="https://wa.me/6285156585239" target="_blank" class="cta-modern">
+            Hubungi Kami
+          </a>
+        </div>
 
       </div>
     </section>
