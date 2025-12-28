@@ -670,13 +670,27 @@
 
           <div class="glow-card">
             <a href="assets/img/mo3-min-min.png" class="glightbox">
-              <img src="assets/img/mo3-min-min.png" alt="Keuntungan Belajar 3">
+              <img
+                src="assets/img/mo3-min-min.png"
+                alt="Keuntungan Belajar 3"
+                loading="lazy"
+                width="400"
+                height="auto"
+                decoding="async"
+              >
             </a>
           </div>
 
           <div class="glow-card">
             <a href="assets/img/mo4-min-min.png" class="glightbox">
-              <img src="assets/img/mo4-min-min.png" alt="Keuntungan Belajar 4">
+              <img
+                src="assets/img/mo4-min-min.png"
+                alt="Keuntungan Belajar 4"
+                loading="lazy"
+                width="400"
+                height="auto"
+                decoding="async"
+              >
             </a>
           </div>
 
@@ -691,41 +705,134 @@
 
 
     <!-- End Testimoni Section -->
-     <section id="testimoni" class="testimonials" style="background: linear-gradient(135deg,#13151c,#272a35); padding: 60px 0;">
-      <div class="container">
 
-        <div class="section-title">
-          <h3 style="color: #ffffff; text-align:center;">Testimoni Peserta <span>Mentor CPNS</span></h3>
-        </div>
+   <section id="testimoni"
+  class="testimonials"
+  style="background: linear-gradient(135deg,#13151c,#272a35); padding: 60px 0 60px;"
+  data-lazy-section
+>
+  <div class="container">
 
-        <div class="swiper testimoniSwiper">
-        <div class="swiper-wrapper">
+    <div class="section-title">
+      <h3 style="color:#fff;text-align:center;">
+        Testimoni Peserta <span>Mentor CPNS</span>
+      </h3>
+    </div>
+    
 
-        <!-- Generate otomatis -->
-        <script>
-          const container = document.currentScript.parentNode;
-          const version = Date.now(); // supaya selalu ambil gambar terbaru
+    <div class="swiper testimoniSwiper">
+      <div class="swiper-wrapper" id="testimoni-wrapper"></div>
 
-          for (let i = 1; i <= 21; i++) {
-            const slide = document.createElement('div');
-            slide.className = 'swiper-slide';
-            slide.innerHTML = `
-              <a href="assets/img/testimoni/image${i}.jpeg?v=${version}" class="glightbox">
-                <img src="assets/img/testimoni/image${i}.jpeg?v=${version}" class="img-fluid imgtesti" alt="testimoni ${i}">
-              </a>
-            `;
-            container.appendChild(slide);
-          }
-        </script>
+      <!-- navigation -->
+      <div class="swiper-button-prev custom-nav"></div>
+      <div class="swiper-button-next custom-nav"></div>
+    </div>
 
-        </div>
-        <div class="swiper-button-next"></div>
-        <div class="swiper-button-prev"></div>
-        <div class="swiper-pagination"></div>
-        </div>
+    <div class="swiper-pagination"></div>
 
-      </div>
-    </section>
+  </div>
+</section>
+
+<style>
+.testimoniSwiper {
+  position: relative;
+  padding-top: 40px;
+  padding-bottom: 0;
+}
+
+.testimoniSwiper .swiper-slide {
+  transition: transform 0.45s ease, opacity 0.45s ease;
+  opacity: 0.5;
+  transform: scale(0.85);
+}
+
+.testimoniSwiper .swiper-slide img {
+  border-radius: 14px;
+  box-shadow: 0 18px 40px rgba(0,0,0,0.45);
+}
+
+/* SLIDE TENGAH (FOKUS) */
+.testimoniSwiper .swiper-slide-active {
+  opacity: 1;
+  transform: scale(1.05);
+  z-index: 2;
+}
+
+/* kiri & kanan */
+.testimoniSwiper .swiper-slide-prev,
+.testimoniSwiper .swiper-slide-next {
+  opacity: 0.7;
+  transform: scale(0.9);
+}
+
+.custom-nav {
+  width: 48px;
+  height: 48px;
+  background: rgba(255,255,255,0.15);
+  backdrop-filter: blur(6px);
+  border-radius: 50%;
+  box-shadow: 0 12px 28px rgba(0,0,0,0.35);
+}
+
+.custom-nav::after {
+  font-size: 18px;
+  color: #fff;
+  font-weight: bold;
+}
+
+.swiper-button-prev {
+  left: -14px;
+}
+
+.swiper-button-next {
+  right: -14px;
+}
+
+.custom-nav:hover {
+  background: rgba(255,255,255,0.28);
+  transform: scale(1.1);
+}
+
+</style>
+
+<style>
+/* pagination tepat di bawah foto */
+.testimoniSwiper .swiper-pagination {
+  position: absolute;
+  bottom: -250px;        /* jarak dari foto */
+  left: 0;
+  width: 100%;
+  text-align: center;
+}
+
+
+/* bullet default */
+.testimoniSwiper .swiper-pagination-bullet {
+  width: 10px;
+  height: 10px;
+  background: rgba(255,255,255,0.35);
+  opacity: 1;
+  margin: 0 6px !important;
+  transition: all 0.3s ease;
+}
+
+/* bullet aktif */
+.testimoniSwiper .swiper-pagination-bullet-active {
+  background: #ffffff;
+  transform: scale(1.4);
+}
+
+/* bullet di sekitar aktif (dynamic) */
+.testimoniSwiper .swiper-pagination-bullet-active-main {
+  background: #ffffff;
+}
+
+.testimoniSwiper .swiper-pagination-bullet-active-prev,
+.testimoniSwiper .swiper-pagination-bullet-active-next {
+  opacity: 0.7;
+}
+
+</style>
 
     <!-- End Testimoni Section -->
 
@@ -867,11 +974,16 @@
         }
 
         .member-single img {
+          filter: blur(6px);
+          transition: filter .4s ease;
           width: 100%;
           height: auto;
           display: block;
           transition: transform .5s ease;
         }
+        
+        .member-single img[loading="lazy"]:not([src=""]) {
+        filter: blur(0);
 
         /* Hover elegan */
         .member-single:hover {
@@ -945,15 +1057,30 @@
 
         <div class="teamfardan-single">
           <div class="member-single">
-            <img src="assets/img/team/mentorc.png" alt="Mentor">
+            <img 
+              src="assets/img/team/mentorc.png"
+              alt="Mentor CPNS"
+              loading="lazy"              
+              decoding="async"            
+              width="300"                 
+              height="auto"                
+            >
           </div>
         </div>
 
         <div class="teamfardan-single">
           <div class="member-single">
-            <img src="assets/img/skdcat2026.png" alt="Mentor">
+            <img 
+              src="assets/img/skdcat2026.png"
+              alt="Program SKD CAT 2026"
+              loading="lazy"              
+              decoding="async"            
+              width="300"                 
+              height="auto"
+            >
           </div>
         </div>
+
 
           <!-- CTA HERE -->
         <div class="cta-center">
@@ -1219,52 +1346,108 @@
 <script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
 
 <script>
-  var swiper = new Swiper(".testimoniSwiper", {
-    effect: "coverflow",
-    grabCursor: true,
-    centeredSlides: true,
-    loop: true,
+document.addEventListener('DOMContentLoaded', () => {
 
-    autoplay: {
-      delay: 2500, // jeda 2,5 detik
-      disableOnInteraction: false,
-    },
+  const section = document.querySelector('[data-lazy-section]');
+  const wrapper = document.getElementById('testimoni-wrapper');
+  let loaded = false;
 
-    coverflowEffect: {
-      rotate: 0,
-      stretch: 0,
-      depth: 120,
-      modifier: 2,
-      slideShadows: false,
-      scale: 0.85, /* gambar samping mengecil */
-    },
+  const observer = new IntersectionObserver(entries => {
+    if (entries[0].isIntersecting && !loaded) {
+      loaded = true;
 
-    slidesPerView: 3,
-    spaceBetween: 25,
+      const version = Date.now();
 
-    pagination: {
-      el: ".swiper-pagination",
-      clickable: true,
-      dynamicBullets: true, // max 5 bullet
-    },
+      for (let i = 1; i <= 21; i++) {
+        const slide = document.createElement('div');
+        slide.className = 'swiper-slide';
+        slide.innerHTML = `
+          <a href="assets/img/testimoni/image${i}.jpeg?v=${version}" class="glightbox">
+            <img
+              src="assets/img/testimoni/image${i}.jpeg?v=${version}"
+              class="img-fluid imgtesti"
+              alt="testimoni ${i}"
+              loading="lazy"
+              decoding="async"
+              width="360"
+              height="480"
+            >
+          </a>
+        `;
+        wrapper.appendChild(slide);
+      }
 
-    navigation: {
-      nextEl: ".swiper-button-next",
-      prevEl: ".swiper-button-prev",
-    },
+      new Swiper('.testimoniSwiper', {
+        centeredSlides: true,
+        slidesPerView: 3,
+        spaceBetween: 30,
+        loop: true,
+        speed: 700,
+        autoplay: {
+          delay: 2500,
+          disableOnInteraction: false
+        },
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev'
+        },
+        breakpoints: {
+          0: {
+            slidesPerView: 1
+          },
+          768: {
+            slidesPerView: 3
+          }
+        }
+      });
 
-    breakpoints: {
-      0: { slidesPerView: 1, coverflowEffect: { scale: 1 } },
-      768: { slidesPerView: 2 },
-      1024: { slidesPerView: 3 }
+      GLightbox({ selector: '.glightbox' });
+      observer.disconnect();
     }
-  });
+  }, { threshold: 0.2 });
 
-  // Zoom
-  const lightbox = GLightbox({
-    selector: '.glightbox'
-  });
+  observer.observe(section);
+});
+
+new Swiper('.testimoniSwiper', {
+  centeredSlides: true,
+  slidesPerView: 3,
+  spaceBetween: 30,
+  loop: true,
+  speed: 700,
+  autoplay: {
+    delay: 2500,
+    disableOnInteraction: false
+  },
+
+  navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev'
+  },
+
+  pagination: {
+    el: '.swiper-pagination',
+    clickable: true,
+    dynamicBullets: true,
+    dynamicMainBullets: 1   // 🔥 MAKSIMAL 5 BULLET
+  },
+
+  breakpoints: {
+    0: {
+      slidesPerView: 1
+    },
+    768: {
+      slidesPerView: 3
+    }
+  }
+});
+
 </script>
+
+
+<script src="assets/js/swiper-bundle.min.js" defer></script>
+<script src="assets/js/glightbox.min.js" defer></script>
+
 
 
   <!-- Template Main JS File -->
