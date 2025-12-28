@@ -2127,30 +2127,24 @@ section {
 --------------------------------------------------------------*/
 .container-keuntungan-belajar {
   display: flex;
-  background-color: #f7f7f7;
   justify-content: center;
-  text-align: center;
   align-items: center;
-  height: 100%;
+  background-color: #f7f7f7;
   padding-top: 2%;
 }
 
-.keuntungan-belajar {
-  display: flex;
-  text-align: center;
-  justify-content: center;
-}
-
+.keuntungan-belajar,
 .keuntungan-belajar2 {
   display: flex;
-  text-align: center;
   justify-content: center;
-  padding-bottom: 4%;
+  text-align: center;
 }
 
-.keuntungan-belajar img {
-  width: 50vh; /* Gambar tetap responsif */
-  align-self: center;
+.keuntungan-belajar img,
+.keuntungan-belajar2 img {
+  max-width: 420px;     /* kontrol ukuran desktop */
+  width: 100%;
+  height: auto;
 }
 
 .icon-with-text {
@@ -2172,41 +2166,61 @@ section {
   font-size: 1.5em; /* Ukuran ikon */
 }
 
-.container-keuntungan-belajar img {
-  width: 30%;
+.glow-card img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* DESKTOP */
+  gap: 20px;
+}
+
+.glow-card {
+  width: 100%;
+}
+
+.glow-card a {
+  display: block;
+  width: 100%;
 }
 
 @media (max-width: 768px) {
 
+   .gallery-grid {
+    grid-template-columns: 1fr !important; /* 🔥 SATU KOLOM */
+    width: 100%;
+  }
+
   .container-keuntungan-belajar {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding-top: 11%;
-    }
+    padding-top: 10%;
+  }
 
-    .keuntungan-belajar {
-      padding-left: 29px;
-      padding-right: 29px;
-      text-align: center; /* Pusatkan teks */
-    }
+  .keuntungan-belajar,
+  .keuntungan-belajar2 {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
 
-    .keuntungan-belajar2 {
-      padding-left: 29px;
-      padding-right: 29px;
-      text-align: center; /* Pusatkan teks */
-      padding-bottom: 11%;
-    }
+  .container-keuntungan-belajar img,
+  .keuntungan-belajar img,
+  .keuntungan-belajar2 img {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+  }
 
-    .keuntungan-belajar img {
-        width: 100%; /* Pastikan gambar tidak melebihi lebar container */
-        height: auto; /* Sesuaikan tinggi gambar agar proporsional */
-    }
+   .keuntungan-belajar {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
 
-    .container-keuntungan-belajar img {
-      width: 100%;
-    }
-
+  .glow-card img {
+    width: 100%;
+    max-width: 100%;
+  }
 }
 
 

@@ -675,8 +675,6 @@
                 src="assets/img/mo3-min-min.png"
                 alt="Keuntungan Belajar 3"
                 loading="lazy"
-                width="400"
-                height="auto"
                 decoding="async"
               >
             </a>
@@ -688,8 +686,6 @@
                 src="assets/img/mo4-min-min.png"
                 alt="Keuntungan Belajar 4"
                 loading="lazy"
-                width="400"
-                height="auto"
                 decoding="async"
               >
             </a>
@@ -957,56 +953,76 @@
     </style>
 
     <style>
-      .teamfardan-single {
-          width: 100%;
-          display: flex;
-          justify-content: center;
-          padding: 20px;
-        }
+/* ================================
+   TEAM / MEMBER SECTION
+================================ */
 
-        .member-single {
-          width: 50%;
-          max-width: 900px; /* batas ukuran di layar besar */
-          border-radius: 18px;
-          overflow: hidden;
-          background: #ffffff;
-          box-shadow: 0 8px 20px rgba(0,0,0,0.08);
-          transition: transform .4s ease, box-shadow .4s ease;
-        }
+.teamfardan-single {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}
 
-        .member-single img {
-          filter: blur(6px);
-          transition: filter .4s ease;
-          width: 100%;
-          height: auto;
-          display: block;
-          transition: transform .5s ease;
-        }
+/* CARD */
+.member-single {
+  width: 50%;              /* DESKTOP */
+  max-width: 900px;
+  border-radius: 18px;
+  overflow: hidden;
+  background: #ffffff;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+  transition:
+    transform .4s ease,
+    box-shadow .4s ease;
+}
 
-        .member-single img[loading="lazy"]:not([src=""]) {
-        filter: blur(0);
+/* IMAGE */
+.member-single img {
+  width: 100%;
+  height: auto;
+  display: block;
 
-        /* Hover elegan */
-        .member-single:hover {
-          transform: translateY(-6px);
-          box-shadow: 0 14px 30px rgba(0,0,0,0.14);
-        }
+  /* efek loading halus */
+  filter: blur(6px);
+  transform: scale(1);
+  transition:
+    filter .4s ease,
+    transform .5s ease;
+}
 
-        .member-single:hover img {
-          transform: scale(1.06);
-        }
+/* hapus blur setelah load */
+.member-single img[loading="lazy"]:not([src=""]) {
+  filter: blur(0);
+}
 
-        /* Mobile Optimization */
-        @media (max-width: 768px) {
-          .teamfardan-single {
-            padding: 12px;
-          }
-          .member-single {
-            border-radius: 14px;
-            width: 100%;
-          }
-        }
-    </style>
+/* ✨ HOVER EFFECT */
+.member-single:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 14px 30px rgba(0,0,0,0.14);
+}
+
+.member-single:hover img {
+  transform: scale(1.06);
+}
+
+/* ================================
+   MOBILE RESPONSIVE (INI KUNCINYA)
+================================ */
+@media (max-width: 768px) {
+
+  .teamfardan-single {
+    padding: 12px;
+  }
+
+  .member-single {
+    width: 100%;          /* 🔥 FULL LAYAR DI HP */
+    max-width: 100%;
+    border-radius: 14px;
+  }
+}
+</style>
+
 
     <style>
       /* Wrapper tombol agar center */
