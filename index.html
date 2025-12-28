@@ -232,10 +232,11 @@
 </style>
 
 <style>
-  .testimoniSwiper .swiper-slide {
-    display: flex;
-    justify-content: center;
-  }
+ .testimoniSwiper {
+  min-height: 520px;   /* 🔥 KUNCI TINGGI */
+  position: relative;
+}
+
 
   .imgtesti {
     border-radius: 12px;
@@ -1351,6 +1352,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const section = document.querySelector('[data-lazy-section]');
   const wrapper = document.getElementById('testimoni-wrapper');
   let loaded = false;
+  let swiperInstance = null;
 
   const observer = new IntersectionObserver(entries => {
     if (entries[0].isIntersecting && !loaded) {
@@ -1358,6 +1360,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       const version = Date.now();
 
+      // === generate slide ===
       for (let i = 1; i <= 21; i++) {
         const slide = document.createElement('div');
         slide.className = 'swiper-slide';
@@ -1377,20 +1380,32 @@ document.addEventListener('DOMContentLoaded', () => {
         wrapper.appendChild(slide);
       }
 
-      new Swiper('.testimoniSwiper', {
+      // === INIT SWIPER (SATU KALI SAJA) ===
+      swiperInstance = new Swiper('.testimoniSwiper', {
+        loop: true,                     // 🔥 BERULANG TERUS
         centeredSlides: true,
         slidesPerView: 3,
         spaceBetween: 30,
-        loop: true,
         speed: 700,
+
         autoplay: {
           delay: 2500,
-          disableOnInteraction: false
+          disableOnInteraction: false,
+          pauseOnMouseEnter: true
         },
+
         navigation: {
           nextEl: '.swiper-button-next',
           prevEl: '.swiper-button-prev'
         },
+
+        pagination: {
+          el: '.swiper-pagination',
+          clickable: true,
+          dynamicBullets: true,
+          dynamicMainBullets: 2   // tampil maks ±5 bullet
+        },
+
         breakpoints: {
           0: {
             slidesPerView: 1
@@ -1401,48 +1416,17 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       });
 
+      // === LIGHTBOX ===
       GLightbox({ selector: '.glightbox' });
+
       observer.disconnect();
     }
-  }, { threshold: 0.2 });
+  }, { threshold: 0.25 });
 
   observer.observe(section);
 });
-
-new Swiper('.testimoniSwiper', {
-  centeredSlides: true,
-  slidesPerView: 3,
-  spaceBetween: 30,
-  loop: true,
-  speed: 700,
-  autoplay: {
-    delay: 2500,
-    disableOnInteraction: false
-  },
-
-  navigation: {
-    nextEl: '.swiper-button-next',
-    prevEl: '.swiper-button-prev'
-  },
-
-  pagination: {
-    el: '.swiper-pagination',
-    clickable: true,
-    dynamicBullets: true,
-    dynamicMainBullets: 1   // 🔥 MAKSIMAL 5 BULLET
-  },
-
-  breakpoints: {
-    0: {
-      slidesPerView: 1
-    },
-    768: {
-      slidesPerView: 3
-    }
-  }
-});
-
 </script>
+
 
 
 <script src="assets/js/swiper-bundle.min.js" defer></script>
