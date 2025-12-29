@@ -1072,39 +1072,212 @@
           <p>Semua Mentor Merupakan ASN yang Siap Membantu Anda Lulus CPNS 2026</p>
         </div>
 
-        <div class="teamfardan-single">
-          <div class="member-single">
-            <img 
+        <div class="teamfardan-wrap">
+
+          <div class="teamfardan-item">
+            <img
               src="assets/img/team/mentorc.png"
               alt="Mentor CPNS"
-              loading="lazy"              
-              decoding="async"            
-              width="300"                 
-              height="auto"                
+              loading="lazy"
+              decoding="async"
+              class="zoomable"
             >
           </div>
-        </div>
 
-        <div class="teamfardan-single">
-          <div class="member-single">
-            <img 
+          <div class="teamfardan-item">
+            <img
               src="assets/img/skdcat2026.png"
               alt="Program SKD CAT 2026"
-              loading="lazy"              
-              decoding="async"            
-              width="300"                 
-              height="auto"
+              loading="lazy"
+              decoding="async"
+              class="zoomable"
             >
           </div>
+
+          <div class="fullscreen-view" id="fullscreenView">
+            <span class="fullscreen-close">&times;</span>
+            <img id="fullscreenImg" src="">
+          </div>
+
         </div>
 
+        <style>
+          /* ================================
+            WRAPPER
+          ================================ */
+          .teamfardan-wrap {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 26px;
+            max-width: 1100px;
+            margin: 60px auto;
+            padding: 0 20px;
+          }
 
-          <!-- CTA HERE -->
+          /* ITEM */
+          .teamfardan-item {
+            overflow: hidden;
+            border-radius: 22px;
+            cursor: zoom-in;
+          }
+
+          /* IMAGE */
+          .teamfardan-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform .45s ease;
+          }
+
+          .teamfardan-item:hover img {
+            transform: scale(1.06);
+          }
+
+          /* ================================
+            MODERN IMAGE PREVIEW
+          ================================ */
+          .fullscreen-view {
+            position: fixed;
+            inset: 0;
+            background: rgba(10, 15, 30, 0.65);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity .35s ease, visibility .35s ease;
+          }
+
+          /* AKTIF */
+          .fullscreen-view.active {
+            opacity: 1;
+            visibility: visible;
+          }
+
+          /* GAMBAR */
+          .fullscreen-view img {
+            max-width: 92%;
+            max-height: 92%;
+            border-radius: 20px;
+            transform: scale(0.92);
+            transition: transform .4s ease;
+          }
+
+          .fullscreen-view.active img {
+            transform: scale(1);
+          }
+
+          /* CLOSE ICON */
+          .fullscreen-close {
+            position: fixed;
+            top: 24px;
+            right: 32px;
+            font-size: 34px;
+            color: #fff;
+            cursor: pointer;
+            opacity: 0.85;
+          }
+
+
+          /* MOBILE */
+          @media (max-width: 768px) {
+            .teamfardan-wrap {
+              grid-template-columns: 1fr;
+            }
+          }
+        </style>
+
+
+        <div class="pricing-modern">
+          <span class="pricing-badge">PROMO TERBATAS</span>
+
+          <div class="pricing-price">
+            <div class="price-old">Harga Normal : Rp 660.000</div>
+            <div class="price-new">Rp 198.000</div>
+          </div>
+
+          <a href="#" class="pricing-btn">Daftar Sekarang</a>
+        </div>
+
+        <style>
+          .pricing-modern {
+            text-align: center;
+            margin: 50px auto;
+            font-family: 'Inter', sans-serif;
+          }
+
+          /* Badge */
+          .pricing-badge {
+            display: inline-block;
+            margin-bottom: 14px;
+            padding: 6px 18px;
+            font-size: 13px;
+            font-weight: 600;
+            color: #fff;
+            background: linear-gradient(135deg, #ff4d4f, #ff7a45);
+            border-radius: 999px;
+            letter-spacing: 0.4px;
+          }
+
+          /* Harga */
+          .pricing-price {
+            margin-bottom: 26px;
+          }
+
+          /* Harga normal – dibuat besar & tegas */
+          .price-old {
+            font-size: 20px;
+            font-weight: 600;
+            color: #9ca3af;
+            text-decoration: line-through;
+            margin-bottom: 6px;
+          }
+
+          /* Harga promo – super fokus */
+          .price-new {
+            font-size: 44px;
+            font-weight: 900;
+            background: linear-gradient(135deg, #2563eb, #1e40af);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 6px;
+          }
+
+          /* Tombol CTA */
+          .pricing-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 15px 38px;
+            font-size: 15px;
+            font-weight: 700;
+            color: #ffffff;
+            background: linear-gradient(135deg, #2563eb, #1e40af);
+            border-radius: 999px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(37, 99, 235, 0.35);
+          }
+
+          /* Hover efek modern */
+          .pricing-btn:hover {
+            transform: translateY(-2px) scale(1.06);
+            box-shadow: 0 18px 45px rgba(37, 99, 235, 0.5);
+          }
+
+        </style>
+
+
+          <!-- CTA HERE 
         <div class="cta-center">
           <a href="https://api.whatsapp.com/send?phone=6285156585239&text=Mentor%20CPNS%0A&l=id" target="_blank" class="cta-modern">
             Hubungi Kami
           </a>
-        </div>
+        </div>-->
 
       </div>
     </section>
@@ -1348,6 +1521,37 @@
   <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
   <script src="assets/vendor/php-email-form/validate.js"></script>
 
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+
+    const images = document.querySelectorAll('.zoomable');
+    const fullscreen = document.getElementById('fullscreenView');
+    const fullscreenImg = document.getElementById('fullscreenImg');
+    const closeBtn = document.querySelector('.fullscreen-close');
+
+    images.forEach(img => {
+      img.addEventListener('click', function () {
+        fullscreenImg.src = this.currentSrc || this.src;
+        fullscreen.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      });
+    });
+
+    closeBtn.addEventListener('click', closePreview);
+
+    fullscreen.addEventListener('click', function (e) {
+      if (e.target === fullscreen) closePreview();
+    });
+
+    function closePreview() {
+      fullscreen.classList.remove('active');
+      document.body.style.overflow = '';
+      setTimeout(() => fullscreenImg.src = '', 300);
+    }
+
+  });
+</script>
+
 
 
   <script>
@@ -1360,7 +1564,32 @@
 
 
   <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
+
+<script>
+  const images = document.querySelectorAll('.zoomable');
+  const preview = document.getElementById('imagePreview');
+  const previewImg = document.getElementById('previewImg');
+  const closeBtn = document.querySelector('.preview-close');
+
+  images.forEach(img => {
+    img.addEventListener('click', () => {
+      previewImg.src = img.src;
+      preview.classList.add('active');
+      document.body.style.overflow = 'hidden'; // stop scroll
+    });
+  });
+
+  closeBtn.addEventListener('click', closePreview);
+  preview.addEventListener('click', e => {
+    if (e.target === preview) closePreview();
+  });
+
+  function closePreview() {
+    preview.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+</script>
 
 <script>
 document.addEventListener('DOMContentLoaded', () => {
