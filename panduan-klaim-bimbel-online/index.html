@@ -143,12 +143,29 @@ a {
     <!-- VIDEO MENYATU -->
     <div class="video-hero">
       <iframe 
-        src="https://www.youtube.com/embed/VIDEO_ID_YOUTUBE"
+        src="https://www.youtube.com/embed/EmB6GumlKzg?hl=id&cc_lang_pref=id&cc_load_policy=1"
         title="Panduan Klaim Bimbel Online Premium Mentor CPNS"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
         allowfullscreen>
       </iframe>
     </div>
+
+    <style>
+    .video-hero {
+      width: 100%;
+      max-width: 420px;      /* batas lebar biar tidak kepanjangan di desktop */
+      aspect-ratio: 9 / 16; /* KUNCI portrait */
+      margin: auto;
+      position: relative;
+    }
+
+    .video-hero iframe {
+      width: 100%;
+      height: 100%;
+      border-radius: 20px;  /* opsional, tampilan modern */
+    }
+    </style>
 
     <!-- KONTEN -->
     <div class="content">
