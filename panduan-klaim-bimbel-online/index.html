@@ -27,21 +27,24 @@ body {
   box-shadow: 0 30px 70px rgba(0,0,0,0.35);
 }
 
-/* VIDEO HERO */
+/* ================= VIDEO ================= */
 .video-hero {
+  width: 100%;
+  max-width: 420px;
+  margin: 28px auto 0;
+  aspect-ratio: 16 / 9;
   position: relative;
-  padding-top: 56.25%;
 }
 
 .video-hero iframe {
-  position: absolute;
-  inset: 0;
   width: 100%;
   height: 100%;
+  border-radius: 18px;
   border: none;
+  display: block;
 }
 
-/* CONTENT */
+/* ================= CONTENT ================= */
 .content {
   padding: 40px;
 }
@@ -65,8 +68,48 @@ h1 {
 .subtitle {
   font-size: 16px;
   color: #475569;
-  margin-bottom: 32px;
+  margin-bottom: 28px;
   line-height: 1.7;
+}
+
+/* ================= TOGGLE BUTTON ================= */
+.toggle-guide {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 32px;
+}
+
+.toggle-guide button {
+  background: #0f172a;
+  color: #fff;
+  border: none;
+  padding: 14px 28px;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all .3s ease;
+}
+
+.toggle-guide button:hover {
+  background: #2563eb;
+}
+
+/* ================= TEXT GUIDE ================= */
+.text-guide {
+  display: none;
+  animation: slideFade .4s ease;
+}
+
+@keyframes slideFade {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .steps {
@@ -124,6 +167,7 @@ a {
   font-weight: 600;
 }
 
+/* ================= RESPONSIVE ================= */
 @media (max-width: 600px) {
   .content {
     padding: 26px 22px;
@@ -140,101 +184,122 @@ a {
 <div class="wrapper">
   <div class="card">
 
-    <!-- VIDEO MENYATU -->
+    <!-- VIDEO -->
     <div class="video-hero">
       <iframe 
         src="https://www.youtube.com/embed/EmB6GumlKzg?hl=id&cc_lang_pref=id&cc_load_policy=1"
         title="Panduan Klaim Bimbel Online Premium Mentor CPNS"
-        frameborder="0"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
         allowfullscreen>
       </iframe>
     </div>
 
     <style>
-    .video-hero {
-      width: 100%;
-      max-width: 420px;      /* batas lebar biar tidak kepanjangan di desktop */
-      aspect-ratio: 9 / 16; /* KUNCI portrait */
-      margin: auto;
-      position: relative;
-    }
+/* CONTAINER YANG PEGANG TINGGI */
+.video-hero {
+  width: 100%;
+  max-width: 420px;
+  margin: 0 auto;
 
-    .video-hero iframe {
-      width: 100%;
-      height: 100%;
-      border-radius: 20px;  /* opsional, tampilan modern */
-    }
-    </style>
+  /* KUNCI UTAMA */
+  aspect-ratio: 9 / 16;
+  position: relative;
+}
 
-    <!-- KONTEN -->
+/* IFRAME HANYA IKUT CONTAINER */
+.video-hero iframe {
+  width: 100%;
+  height: 100%;
+  display: block;
+  border-radius: 18px;
+  margin-top: 3vh;
+  border: 0;
+}
+
+/* DESKTOP */
+@media (min-width: 992px) {
+  .video-hero {
+    max-height: 560px;   /* aman desktop */
+  }
+}
+
+/* MOBILE */
+@media (max-width: 991px) {
+  .video-hero {
+    max-height: 80vh;    /* tidak full, tidak overlap */
+  }
+}
+</style>
+
+
+    <!-- CONTENT -->
     <div class="content">
-
-      <span class="badge">Panduan Resmi</span>
-
-      <h1>Panduan Klaim Bimbel Online Premium<br>MENTOR CPNS</h1>
-
-      <p class="subtitle">
-        Tonton video panduan di atas, lalu ikuti langkah-langkah berikut
-        untuk mengaktifkan <strong>Paket Premium CPNS</strong> Anda.
-      </p>
-
-      <div class="steps">
-
-        <div class="step">
-          <div class="step-number">1</div>
-          <div class="step-text">
-            Login ke <a href="https://app.mentorcpns.id" target="_blank">app.mentorcpns.id</a>
-            menggunakan email dan kata sandi Anda.
-          </div>
-        </div>
-
-        <div class="step">
-          <div class="step-number">2</div>
-          <div class="step-text">
-            Klik Menu (☰) lalu pilih <strong>Paket Membership</strong>.
-          </div>
-        </div>
-
-        <div class="step">
-          <div class="step-number">3</div>
-          <div class="step-text">
-            Pilih <strong>CPNS</strong> kemudian <strong>Paket Premium</strong>.
-          </div>
-        </div>
-
-        <div class="step">
-          <div class="step-number">4</div>
-          <div class="step-text">
-            Pilih metode <strong>Pembayaran Manual</strong>.
-          </div>
-        </div>
-
-        <div class="step">
-          <div class="step-number">5</div>
-          <div class="step-text">
-            Isi nama akun marketplace & tanggal checkout.
-          </div>
-        </div>
-
-        <div class="step">
-          <div class="step-number">6</div>
-          <div class="step-text">
-            Upload bukti checkout lalu klik <strong>Kirim</strong>.
-          </div>
-        </div>
-
-        <div class="step">
-          <div class="step-number">7</div>
-          <div class="step-text">
-            Tunggu maksimal <strong>1×24 jam</strong>, paket aktif otomatis.
-          </div>
-        </div>
-
+      <!-- TOGGLE -->
+      <div class="toggle-guide">
+        <button id="toggleBtn" onclick="toggleGuide()">
+          📄 Lihat Panduan Teks
+        </button>
       </div>
 
-      <div class="highlight">
-        💡 Pastikan data yang diinput sesuai bukti checkout agar verifikasi berjalan cepat.
+      <!-- TEXT GUIDE -->
+      <div class="text-guide" id="textGuide">
+
+        <div class="steps">
+          <div class="step">
+            <div class="step-number">1</div>
+            <div class="step-text">
+              Login ke <a href="https://app.mentorcpns.id" target="_blank">app.mentorcpns.id</a>
+              menggunakan email dan kata sandi Anda.
+            </div>
+          </div>
+
+          <div class="step">
+            <div class="step-number">2</div>
+            <div class="step-text">
+              Klik Menu (☰) lalu pilih <strong>Paket Membership</strong>.
+            </div>
+          </div>
+
+          <div class="step">
+            <div class="step-number">3</div>
+            <div class="step-text">
+              Pilih <strong>CPNS</strong> kemudian <strong>Paket Premium</strong>.
+            </div>
+          </div>
+
+          <div class="step">
+            <div class="step-number">4</div>
+            <div class="step-text">
+              Pilih metode <strong>Pembayaran Manual</strong>.
+            </div>
+          </div>
+
+          <div class="step">
+            <div class="step-number">5</div>
+            <div class="step-text">
+              Isi nama akun marketplace & tanggal checkout.
+            </div>
+          </div>
+
+          <div class="step">
+            <div class="step-number">6</div>
+            <div class="step-text">
+              Upload bukti checkout lalu klik <strong>Kirim</strong>.
+            </div>
+          </div>
+
+          <div class="step">
+            <div class="step-number">7</div>
+            <div class="step-text">
+              Tunggu maksimal <strong>1×24 jam</strong>, paket aktif otomatis.
+            </div>
+          </div>
+        </div>
+
+        <div class="highlight">
+          💡 Pastikan data yang diinput sesuai bukti checkout agar verifikasi berjalan cepat.
+        </div>
+
       </div>
 
       <div class="footer">
@@ -244,6 +309,22 @@ a {
     </div>
   </div>
 </div>
+
+<script>
+function toggleGuide() {
+  const guide = document.getElementById('textGuide');
+  const btn = document.getElementById('toggleBtn');
+
+  if (guide.style.display === 'block') {
+    guide.style.display = 'none';
+    btn.innerHTML = '📄 Lihat Panduan Teks';
+  } else {
+    guide.style.display = 'block';
+    btn.innerHTML = '❌ Sembunyikan Panduan Teks';
+    guide.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+}
+</script>
 
 </body>
 </html>
